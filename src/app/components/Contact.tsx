@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
@@ -9,14 +9,14 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
     alert("Message Sent!");
     setMessage("");
   };
 
-  const handleSubscription = (e) => {
+  const handleSubscription = (e: React.FormEvent) => {
     e.preventDefault();
     setSubscribed(true);
   };
