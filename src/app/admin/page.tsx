@@ -13,7 +13,7 @@ export default function AdminLoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/users/login`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/users`, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
