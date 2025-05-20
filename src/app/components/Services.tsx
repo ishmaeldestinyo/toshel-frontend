@@ -28,7 +28,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-20 px-6 text-center">
+    <section id="service" className="w-full max-w-7xl mx-auto py-20 px-6 text-center">
       <h2 className="text-4xl font-extrabold text-gray-900 mb-12">
         Our <span className="text-blue-600">Services</span>
       </h2>

@@ -21,7 +21,7 @@ export default function Team() {
   }, []);
 
   return (
-    <section className="py-24 px-6 lg:px-20 bg-white dark:bg-[#0c0c0c] text-center">
+    <section id="team" className="py-24 px-6 lg:px-20 bg-white dark:bg-[#0c0c0c] text-center">
       <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
         Meet Our Team
       </h2>
@@ -35,9 +35,9 @@ export default function Team() {
             key={member.name}
             className="bg-white dark:bg-white/5 rounded-3xl shadow-lg p-6 text-left"
           >
-            <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4">
+            {/* <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4">
               <Image src={member.image} alt={member.name} fill className="object-cover" />
-            </div>
+            </div> */}
             <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
               {member.name}
             </h4>

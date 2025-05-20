@@ -32,12 +32,12 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
             <li><Link href="/" className="text-black font-bold hover:text-blue-600">Home</Link></li>
-            <Link href="/services" className="text-black font-bold hover:text-blue-600">
+            <Link href="#service" className="text-black font-bold hover:text-blue-600">
     Services
   </Link>
-            <li><Link href="/projects" className="text-black font-bold hover:text-blue-600">Projects</Link></li>
-            <li><Link href="/team" className="text-black font-bold hover:text-blue-600">Our Team</Link></li>
-            <li><Link href="/contact" className="text-black font-bold hover:text-blue-600">Contact</Link></li>
+            <li><a href="#project" className="text-black font-bold hover:text-blue-600">Projects</a></li>
+            <li><a href="#team" className="text-black font-bold hover:text-blue-600">Our Team</a></li>
+            <li><a href="#contact" className="text-black font-bold hover:text-blue-600">Contact</a></li>
           </ul>
         </div>
 
@@ -45,11 +45,11 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden">
             <ul className="flex flex-col space-y-2 py-2">
-              <li><Link href="/" className="block text-white hover:text-yellow-400">Home</Link></li>
-              <li><Link href="/services" className="block text-white hover:text-yellow-400">Services</Link></li>
-              <li><Link href="/projects" className="block text-white hover:text-yellow-400">Projects</Link></li>
-              <li><Link href="/team" className="block text-white hover:text-yellow-400">Our Team</Link></li>
-              <li><Link href="/contact" className="block text-white hover:text-yellow-400">Contact</Link></li>
+              <li><a href="/" className="block text-white hover:text-yellow-400">Home</a></li>
+              <li><a href="#service" className="block text-white hover:text-yellow-400">Services</a></li>
+              <li><a href="#project" className="block text-white hover:text-yellow-400">Projects</a></li>
+              <li><a href="#team" className="block text-white hover:text-yellow-400">Our Team</a></li>
+              <li><a href="#contact" className="block text-white hover:text-yellow-400">Contact</a></li>
             </ul>
           </div>
         )}

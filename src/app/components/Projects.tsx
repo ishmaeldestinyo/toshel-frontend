@@ -18,7 +18,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
   }
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16">
+    <main id="project" className="max-w-4xl mx-auto px-6 py-16">
       <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
       <Image
         src={project.image}
