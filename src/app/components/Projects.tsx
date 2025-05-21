@@ -50,7 +50,7 @@ export default function ProjectDetailPage() {
             viewport={{ once: true }}
             className="rounded-3xl bg-white/80 dark:bg-white/10 backdrop-blur-lg shadow-xl overflow-hidden mb-12"
           >
-            <div className="relative w-60 h-64 sm:h-60">
+            <div className="relative w-90 h-64 sm:h-90">
               <Image
                 src={item.images}
                 alt={item.slug}
