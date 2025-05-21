@@ -84,13 +84,13 @@ export default function Team() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {visibleTeam.map((member, i) => (
           <div key={i} className="p-6 bg-white rounded-xl shadow-xl border text-center">
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={160}
-              height={160}
-              className="rounded-full mx-auto mb-4 object-cover"
-            />
+            {/* <Image
+            //   src={member.image}
+            //   alt={member.name}
+            //   width={160}
+            //   height={160}
+            //   className="rounded-full mx-auto mb-4 object-cover"
+            // /> */}
             <h3 className="text-xl font-semibold">{member.name}</h3>
             
             <div className="mt-4 flex flex-wrap justify-center gap-2">
