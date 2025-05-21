@@ -5,7 +5,7 @@
 import Hero from "./components/Hero";
 import Feature from "./components/Feature";
 import Services from "./components/Services";
-// import Projects from "./components/Projects";
+import Projects from "./components/Projects";
 import Vision from "./components/Vision";
 import Contact from "./components/Contact";
 import Team from "./components/Team";
@@ -18,7 +18,7 @@ export default function HomePage() {
       <Hero />
       <Feature />
       <Services />
-      {/* <Projects /> */}
+      <Projects />
       <Vision />
       <Contact />
       <Team />

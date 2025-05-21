@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import {toast, Toaster} from 'sonner';
+import { useState, useEffect, useRef } from "react";
+import { toast, Toaster } from "sonner";
 export default function CreateProject() {
   const [loading, setLoading] = useState(true);
 
@@ -12,56 +12,50 @@ export default function CreateProject() {
   const [loadingImage, setLoadingImage] = useState(false);
   const [category, setCategory] = useState("");
 
-
   const [categories, setCategories] = useState([]);
 
+  const ref = useRef(null);
 
   type categoryType = {
-      _id: string,
-      description: string,
-      name: string,
-      image: string,
-      createdAt: string,
-      updatedAt: string,
-      status: string,
-      __v: number,
-      category: string,
-  }
+    _id: string;
+    description: string;
+    name: string;
+    image: string;
+    createdAt: string;
+    updatedAt: string;
+    status: string;
+    __v: number;
+    category: string;
+  };
   useEffect(() => {
-
-      const fetchCategories = async () => {
-          try {
-              const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/categories`);
-              const data = await response.json();
-              setCategories(data?.categories);
-          } catch (error) {
-              console.error('Error fetching categories:', error);
-          }
-      };
-
-      fetchCategories();
-      // Cleanup function to reset categories if needed
-      return () => {
-          setCategories([]);
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URI}/api/projects/categories`
+        );
+        const data = await response.json();
+        setCategories(data?.categories);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
       }
+    };
 
-  }, [])
+    fetchCategories();
+   
+  }, []);
   const [selectedCategory, setSelectedCategory] = useState({} as categoryType);
 
-  if(!categories) {
-      return (
-          <div className="bg-white p-4">
-              <h1 className="text-2xl font-bold mb-4 text-[#131313]">Loading...</h1>
-          </div>
-      )
+  if (!categories) {
+    return (
+      <div className="bg-white p-4">
+        <h1 className="text-2xl font-bold mb-4 text-[#131313]">Loading...</h1>
+      </div>
+    );
   }
-
-
 
   const handleProjectCreation = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-  
+
     const formData = new FormData();
     formData.append("slug", slug);
     formData.append("description", description);
@@ -69,38 +63,42 @@ export default function CreateProject() {
       formData.append("image", image); // add image
     }
     formData.append("category_id", category);
-  
-     if (!image) {
-    alert("Please select an image");
-    return;
-  }
+
+    if (!image) {
+      alert("Please select an image");
+      return;
+    }
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/projects`, {
-        method: "POST",
-        body: formData,
-      });
-  
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URI}/api/projects`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
       const data = await response.json();
-      console.log("Response:", data);
       toast.info("Project created successfully!");
     } catch (error) {
-      alert(`${error}`);
-      setError("Something went wrong.");
     } finally {
       setLoading(false);
     }
   };
-  
-
 
   return (
-    <div className="bg-white p-4" onSubmit={handleProjectCreation}>
-       <Toaster richColors />
+    <div className="bg-white p-4">
+      <Toaster richColors />
       <div className="md:w-1/2 mx-auto w-full">
         <h1 className="text-2xl font-bold mb-4 text-[#131313]">
           Create New Project
         </h1>
-        <form className="flex flex-col gap-4" method="POST" encType="multipart/form-data" onSubmit={handleProjectCreation}>
+        <form
+          className="flex flex-col gap-4"
+          method="POST"
+          encType="multipart/form-data"
+          onSubmit={handleProjectCreation}
+        >
           <input
             type="text"
             placeholder="Project Name"
@@ -133,12 +131,13 @@ export default function CreateProject() {
             }}
           >
             <option value="">Select Category</option>
-            {categories && categories.map((cat: categoryType) => (
-              <option key={cat._id} value={cat._id}>
-                {cat.name}
-              </option>
-            ))}
-            {!categories && (<option value="">No categories available</option>)}
+            {categories &&
+              categories.map((cat: categoryType) => (
+                <option key={cat._id} value={cat._id}>
+                  {cat.name}
+                </option>
+              ))}
+            {!categories && <option value="">No categories available</option>}
           </select>
           <button
             type="submit"

@@ -13,7 +13,7 @@ export default function CreateCategory() {
     try {
       e.preventDefault();
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URI}/api/categories`,
+        `${process.env.NEXT_PUBLIC_BASE_URI}/api/projects/categories`,
         {
           method: 'POST',
           body: JSON.stringify({ name, description }),

@@ -18,7 +18,7 @@ export default function CategoryDetail() {
     useEffect(() => {
         const fetchCategory = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/categories/${id}`);
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/projects/categories/${id}`);
                 const data = await response.json();
                 setCategory(data?.category);
             } catch (error) {
