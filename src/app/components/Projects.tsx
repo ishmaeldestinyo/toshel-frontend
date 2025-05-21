@@ -11,7 +11,7 @@ export default function ProjectDetailPage() {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URI}/api/projects`);
         const data = await res.json();
-        setProject(data.project);
+        setProject(data.projects);
       } catch (err) {
         console.error(err);
       } finally {
